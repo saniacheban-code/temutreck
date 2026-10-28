@@ -25,4 +25,5 @@ return JSON.stringify({price:p,title:document.title,stock:st});
             )
         } catch (e: Exception) {
             null
+        }
  }
