@@ -14,9 +14,15 @@ return JSON.stringify({price:p,title:document.title,stock:st});
 })()"""
 
     data class R(val price: Double?, val title: String, val stock: Int)
-    fun parse(raw: String?): R? = try {
-        val s = JSONTokener(raw ?: return null).nextValue() as String
-        val o = JSONObject(s)
-        R(if (o.isNull("price")) null else o.getDouble("price"), o.optString("title"), if (o.isNull("stock")) -1 else o.getInt("stock"))
-    } catch (e: Exception) { null }
-}
+  fun parse(raw: String?): R? {
+        return try {
+            val s = JSONTokener(raw ?: return null).nextValue() as String
+            val o = JSONObject(s)
+            R(
+                if (o.isNull("price")) null else o.getDouble("price"),
+                o.optString("title"),
+                if (o.isNull("stock")) -1 else o.getInt("stock")
+            )
+        } catch (e: Exception) {
+            null
+ }
