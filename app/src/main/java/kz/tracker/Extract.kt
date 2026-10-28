@@ -23,7 +23,8 @@ return JSON.stringify({price:p,title:document.title,stock:st});
                 o.optString("title"),
                 if (o.isNull("stock")) -1 else o.getInt("stock")
             )
-        } catch (e: Exception) {
-            null
-        }
+} catch (e: Exception) {
+        null
     }
+}
+}
